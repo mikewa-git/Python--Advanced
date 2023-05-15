@@ -27,3 +27,59 @@ CUBE CLASS
    Update the Cube class to not repeat the content of Object.
 
 """
+# ***********************************************************************
+# CLASS
+
+# Master class
+class Object():
+    def __init__(self, name, translate, rotate, scale):
+        self.name = name
+        self.translate = translate
+        self.rotate = rotate
+        self.scale = scale
+
+# Subclass
+class Cube(Object):
+    def __init__(self, name, translate, rotate, scale, color):
+        super().__init__(name, translate, rotate, scale)
+        self.color = color
+      
+    def cube_translate(self):
+       translate_value = self.translate
+       return translate_value
+   
+    def cube_rotate(self):
+       rotate_value = self.rotate
+       return rotate_value
+   
+    def cube_scale(self):
+       scale_value = self.scale
+       return scale_value
+   
+    def cube_color(self):
+       color_value = self.color
+       return color_value
+   
+    def print_status(self):
+       print(f"name      : {self.name}")
+       print(f"translate : {self.translate}")
+       print(f"rotate    : {self.rotate}")
+       print(f"scale     : {self.scale}")
+       print(f"color     : {self.color}")
+    
+    def update_transform(self, ttype, value):
+        setattr(self, ttype, value)
+
+
+# ***********************************************************************
+# TESTS
+
+test = Cube(name = "cube01", translate = [0,0,0], rotate = [1,1,1], scale = [2,2,2], color = [3,3,3])
+test.cube_translate()
+test.cube_rotate()
+test.cube_scale()
+test.cube_color()
+test.print_status()
+test.update_transform("name" , "booyah")
+test.update_transform("color" , [255,255,255])
+test.print_status()

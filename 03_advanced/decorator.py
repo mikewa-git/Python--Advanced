@@ -33,8 +33,17 @@ import time
 #*********************************************************************
 # DECORATOR
 def print_process(func):
+    
     def wrapper(*args, **kwargs):
-        func(arg)                  # main_function
+        print("START")
+        time_start = time.time()
+        
+        func(*args, **kwargs)                  # main_function
+        
+        print("END")
+        #round time for readability
+        return f'FUNC: {func.__name__} took {round(time.time() - time_start, 2)} seconds to complete'
+    
     return wrapper
 
 
@@ -42,7 +51,7 @@ def print_process(func):
 # FUNC
 @print_process
 def short_sleeping(name):
-    time.sleep(.1)
+    time.sleep(.5)
     print(name)
 
 def mid_sleeping():
