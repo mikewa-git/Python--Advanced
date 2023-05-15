@@ -20,7 +20,7 @@ LIBRARYPATH = os.path.join(DIRECTORY + "\AssetsLib")
 target_mesh = cmds.ls(selection=True)[0]
 
 # Date object formatted to D:M:Y H:M:S
-current_time = datetime.current_time().strftime("%d/%m/%Y %H:%M:%S")
+current_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
 # *********************************************************
 # FUNCTIONS
